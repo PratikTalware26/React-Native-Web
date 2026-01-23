@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import {
+  // Button,
   FlatList,
   Platform,
   StatusBar,
@@ -9,10 +10,12 @@ import {
 } from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { RestaurantInfoCard } from '../components/restaurant-info-card.component';
+// import { useNavigation } from '@react-navigation/native';
 
 export const RestaurantsScreen = () => {
   console.log('Render RestaurantScreen Component');
   const [textVal, setTextVal] = useState('');
+  // const navigation = useNavigation();
 
   const onChangeText = (text: string) => {
     console.log('text2:', textVal);
@@ -36,6 +39,10 @@ export const RestaurantsScreen = () => {
           keyExtractor={item => item.name}
           contentContainerStyle={{}}
         />
+        {/* <Button
+          title="Go to profile"
+          onPress={() => navigation.navigate('Profile')}
+        /> */}
       </SafeAreaView>
     </SafeAreaProvider>
   );
