@@ -2,6 +2,8 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { RestaurantsScreen } from './src/features/restaurents/screens/restaurants.screen';
 import { Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
+import { RestaurantsContextProvider } from './src/services/restaurents/mock/restaurants.context';
+import { LocationContextProvider } from './src/services/location/location.context';
 
 function ProfileScreen() {
   // const navigation = useNavigation();
@@ -27,9 +29,13 @@ function MyTabs() {
 
 function App() {
   return (
-    <NavigationContainer>
-      <MyTabs />
-    </NavigationContainer>
+    <LocationContextProvider>
+      <RestaurantsContextProvider>
+        <NavigationContainer>
+          <MyTabs />
+        </NavigationContainer>
+      </RestaurantsContextProvider>
+    </LocationContextProvider>
   );
 }
 
